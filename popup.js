@@ -18,13 +18,18 @@ const setStorage = (data) => {
   });
 };
 
-const updateUI = async () => {
-  const data = await getStorage(["redirect"]);
-  toggleEle.checked = data;
-};
+// Event listener for toggle change
+toggleEle.addEventListener("change", async () => {
+  const isEnabled = toggleEle.checked;
+  await setStorage({ isEnabled });
+});
 
-updateUI();
-toggleEle.addEventListener("change", async (event) => {
-  await setStorage({ redirect: event.target.checked });
-  updateUI();
+getStorage("isEnabled").then((isEnabled) => {
+  if (isEnabled === undefined) {
+    // Set the default value to true if it's undefined in storage
+    toggleEle.checked = true;
+    setStorage({ isEnabled: true });
+  } else {
+    toggleEle.checked = isEnabled;
+  }
 });
