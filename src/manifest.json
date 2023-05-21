@@ -13,14 +13,14 @@
   "content_scripts": [
     {
       "run_at": "document_start",
-      "js": ["content.js"],
+      "js": ["./js/content.js"],
       "matches": ["*://*.youtube.com/*"],
       "all_frames": true
     }
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "./js/background.js"
   },
-  "action": { "default_popup": "popup.html" },
+  "action": { "default_popup": "./popup/popup.html" },
   "permissions": ["storage", "tabs"]
 }
