@@ -17,6 +17,7 @@ const setStorage = (data) => {
 };
 
 chrome.storage.local.get("isEnabled", (result) => {
+  console.log("content", result);
   const isEnabled = result.isEnabled;
   if (isEnabled === undefined || isEnabled) {
     run();

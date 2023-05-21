@@ -25,6 +25,7 @@ toggleEle.addEventListener("change", async () => {
 });
 
 getStorage("isEnabled").then((isEnabled) => {
+  console.log("isEnabled", isEnabled)
   if (isEnabled === undefined) {
     // Set the default value to true if it's undefined in storage
     toggleEle.checked = true;

@@ -20,8 +20,15 @@ body {
 /* HEADER */
 header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
+
+header a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .container {
   padding: 16px;
@@ -40,6 +47,10 @@ label {
   justify-content: space-between;
   align-items: center;
   user-select: none;
+}
+
+label > span {
+  font-size: 16px;
 }
 
 .toggle-container {
@@ -82,11 +93,4 @@ input:checked + .toggle-switch:before {
   border-radius: 100vh;
   background-color: #e0e0e0;
   transition: 0.4s;
-}
-
-/* FOOTER */
-footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
