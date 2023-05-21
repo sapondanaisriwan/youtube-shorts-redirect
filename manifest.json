@@ -1,0 +1,20 @@
+{
+  // Required
+  "manifest_version": 3,
+  "name": "YouTube Redirect Shorts",
+  "description": "Redirects YouTube shorts to the normal player.",
+  "version": "1.0.0",
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "js": ["content.js"],
+      "matches": ["*://*.youtube.com/*"],
+      "all_frames": true
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": { "default_popup": "popup.html" },
+  "permissions": ["storage", "tabs"]
+}
