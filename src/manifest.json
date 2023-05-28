@@ -1,5 +1,4 @@
 {
-  // Required
   "manifest_version": 3,
   "name": "YouTube Redirect Shorts",
   "description": "Redirects YouTube shorts to the normal player.",

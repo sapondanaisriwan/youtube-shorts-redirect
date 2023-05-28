@@ -1,3 +1,4 @@
+const youtubeURL = "https://www.youtube.com/*";
 const selectors = {
   toggle: "input[type=checkbox]",
 };
@@ -18,14 +19,21 @@ const setStorage = (data) => {
   });
 };
 
+const fetchTabs = () => chrome.tabs.query({ url: youtubeURL });
+
+const reloadTabs = async () => {
+  const tabs = await fetchTabs();
+  tabs.forEach((tab) => chrome.tabs.reload(tab.id));
+};
+
 // Event listener for toggle change
 toggleEle.addEventListener("change", async () => {
   const isEnabled = toggleEle.checked;
   await setStorage({ isEnabled });
+  reloadTabs();
 });
 
 getStorage("isEnabled").then((isEnabled) => {
-  console.log("isEnabled", isEnabled)
   if (isEnabled === undefined) {
     // Set the default value to true if it's undefined in storage
     toggleEle.checked = true;
